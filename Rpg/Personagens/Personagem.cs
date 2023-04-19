@@ -13,13 +13,15 @@ namespace aprimorando_rpg.Personagens
         public int Dano { get; private set; }
         public int PontosDeVida { get; private set; }
         public int Armadura { get; private set; }
+        public int Esquiva { get; private set; }
 
-        public Personagem(int chanceacerto, int dano, int pontosdevida, int armadura)
+        public Personagem(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva)
         {
             this.ChanceAcerto = chanceacerto;
             this.Dano = dano;
             this.PontosDeVida = pontosdevida;
             this.Armadura = armadura;
+            this.Esquiva= esquiva;
         }
     }
 }

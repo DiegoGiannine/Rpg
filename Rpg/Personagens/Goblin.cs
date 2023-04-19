@@ -9,7 +9,7 @@ namespace aprimorando_rpg.Personagens
 {
     public class Goblin: Personagem
     {
-        public Goblin(int chanceacerto, int dano, int pontosdevida, int armadura) : base(chanceacerto, dano, pontosdevida, armadura)
+        public Goblin(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva) : base(chanceacerto, dano, pontosdevida, armadura, esquiva)
         {
 
         }

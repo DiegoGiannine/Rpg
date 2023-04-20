@@ -8,11 +8,11 @@ namespace aprimorando_rpg.Personagens
 {
     public abstract class Personagem
     {               
-        public int ChanceAcerto { get; protected set; }
-        public int Dano { get; protected set; }
-        public int PontosDeVida { get; protected set; }
-        public int Armadura { get; protected set; }
-        public int Esquiva { get; protected set; }
+        public int ChanceAcerto { get;  set; }
+        public int Dano { get;  set; }
+        public int PontosDeVida { get;  set; }
+        public int Armadura { get;  set; }
+        public int Esquiva { get;  set; }
 
         public Personagem(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva)
         {

@@ -1,15 +1,12 @@
 ﻿using aprimorando_rpg.Personagens;
 using Rpg.Utilitarios;
 
+ 
 Arqueiro atorArqueiro = new Arqueiro();
-
 Mago atorMago = new Mago();
-
 Guerreiro atorGuerreiro = new Guerreiro();
 
 RolagemDeDados rolarDados = new RolagemDeDados();
-
-int acerto;
 
 
 Console.WriteLine("Em uma cidadizinha na região metropolitana \nde Minas Gerais, ");
@@ -80,6 +77,9 @@ if (salvarSimOuNao.ToLower() == "sim")
     Console.Clear();
     Console.WriteLine("Chegando na entrada da Biquinha, \nvocê se depara com uma criatura goblin \n" +
                     "fazendo uma ronda de vigia");
+
+    Goblin goblin = new Goblin();
+
     Console.ReadKey();
     Console.Clear();
     Console.WriteLine("O que você faz?");
@@ -98,53 +98,73 @@ if (salvarSimOuNao.ToLower() == "sim")
         Console.WriteLine("Pressione Enter para fazer uma rolagem,");
         Console.ReadKey();
 
-        acerto = rolarDados.RolarDado();
+        int acerto = rolarDados.RolarDado();
         Console.WriteLine(acerto);
 
-        if (ator.ToLower() == "arqueiro")
-        {            
-            if (acerto <= (atorArqueiro.ChanceAcerto + atorArqueiro.Esquiva))
+        if (ator.ToLower() == "arqueiro" || ator.ToLower() == "guerreiro" || ator.ToLower() == "mago")
+        {
+            if (acerto <= atorArqueiro.ChanceAcerto + atorArqueiro.Esquiva || acerto <= atorGuerreiro.ChanceAcerto + atorGuerreiro.Esquiva || acerto <= atorMago.ChanceAcerto + atorMago.Esquiva)
             {
                 Console.WriteLine("Você passou despercebido");
             }
             else
             {
                 Console.WriteLine("Você foi percebido, \ngoblin atacará você");
-            }
-        }
-        if (ator.ToLower() == "guerreiro")
-        {
-            if (acerto <= atorGuerreiro.ChanceAcerto + atorGuerreiro.Esquiva)
-            {
-                Console.WriteLine("Você passou despercebido");
-            }
-            else 
-            {
-                Console.WriteLine("Você foi percebido, \ngoblin atacará você");
-            }
-        }
-        else
-        {
-            if (acerto <= atorMago.ChanceAcerto + atorMago.Esquiva)
-            {
-                Console.WriteLine("Você passou despercebido");
-            }
-            else
-            {
-                Console.WriteLine("Você foi percebido, \ngoblin atacará você");
-            }
-        }
-        Console.ReadKey();
-        Console.Clear();
+                Console.ReadKey();
+                Console.WriteLine("Pressione Enter para ver a rolagem do goblin");
+                Console.ReadKey();
 
-        Console.WriteLine("Você salvou sua família");
-        Console.WriteLine("FIM!!!");
-        Console.ReadKey();
+                acerto = rolarDados.RolarDado();
+                Console.WriteLine(acerto);
+                if (ator.ToLower() == "arqueiro" && acerto <= goblin.ChanceAcerto - atorArqueiro.Esquiva || ator.ToLower() != "arqueiro" && acerto <= goblin.ChanceAcerto)
+                {
+                    if (ator.ToLower() == "arqueiro")
+                    {
+                        Console.WriteLine("Goblin acertou você tirando " + goblin.Dano + " pontos de vida");
+                        atorArqueiro.PontosDeVida -= goblin.Dano;
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("Seus pontos de vida são " + atorArqueiro.PontosDeVida);
+                             
+                    }
+                    if (ator.ToLower() == "mago")
+                    {
+                        Console.WriteLine("Goblin acertou você tirando " + goblin.Dano + " pontos de vida");
+                        atorMago.PontosDeVida -= goblin.Dano;
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("Seus pontos de vida são " + atorMago.PontosDeVida);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Goblin acertou você tirando " + (goblin.Dano - atorGuerreiro.Armadura) + " pontos de vida");
+                        atorGuerreiro.PontosDeVida -= (goblin.Dano - atorGuerreiro.Armadura);
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("Seus pontos de vida são " + atorGuerreiro.PontosDeVida);
+                    }
+                }
+            }
+        }
     }
+    else
+    {
+        Console.WriteLine("Você inicia o ataque");
+    }
+    
+    Console.ReadKey();
+    Console.Clear();
+    Console.WriteLine("Aperte Enter para fazer a sua rolagem de acerto");
+    Console.ReadKey();
 
+    Console.WriteLine(rolarDados.RolarDado());
+    
 
-
-
+    Console.WriteLine("Você salvou sua família");
+    Console.WriteLine("FIM!!!");
+    Console.ReadKey();
+    
 }
 else
 {

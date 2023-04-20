@@ -8,7 +8,7 @@ namespace aprimorando_rpg.Personagens
 {
     internal class Arqueiro: Personagem
     {
-        public Arqueiro(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva) : base(chanceacerto, dano, pontosdevida, armadura, esquiva)
+        public Arqueiro() : base(4, 6, 20, 0, 1)
         {
 
         }

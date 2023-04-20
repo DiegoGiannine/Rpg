@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace aprimorando_rpg.Personagens
 {
-    public class Personagem
-    {        
-        public string Ator {get; set;}
-        public int ChanceAcerto { get; private set; }
-        public int Dano { get; private set; }
-        public int PontosDeVida { get; private set; }
-        public int Armadura { get; private set; }
-        public int Esquiva { get; private set; }
+    public abstract class Personagem
+    {               
+        public int ChanceAcerto { get; protected set; }
+        public int Dano { get; protected set; }
+        public int PontosDeVida { get; protected set; }
+        public int Armadura { get; protected set; }
+        public int Esquiva { get; protected set; }
 
         public Personagem(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva)
         {

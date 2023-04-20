@@ -1,11 +1,11 @@
 ﻿using aprimorando_rpg.Personagens;
 using Rpg.Utilitarios;
 
-Arqueiro atorArqueiro = new Arqueiro(4, 6, 20, 0, 1);
+Arqueiro atorArqueiro = new Arqueiro();
 
-Mago atorMago = new Mago(4, 8, 20, 0, 0);
+Mago atorMago = new Mago();
 
-Guerreiro atorGuerreiro = new Guerreiro(4, 4, 20, 2, 0);
+Guerreiro atorGuerreiro = new Guerreiro();
 
 RolagemDeDados rolarDados = new RolagemDeDados();
 

@@ -8,10 +8,9 @@ namespace aprimorando_rpg.Personagens
 {
     public class Mago: Personagem
     {
-        public Mago(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva) :base(chanceacerto, dano, pontosdevida, armadura, esquiva)
+        public Mago() : base(4, 8, 20, 0, 0)
         {
 
-        }                                    
-             
+        }             
     }
 }

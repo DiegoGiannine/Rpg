@@ -8,7 +8,7 @@ namespace aprimorando_rpg.Personagens
 {
     public class Guerreiro: Personagem
     {
-        public Guerreiro(int chanceacerto, int dano, int pontosdevida, int armadura, int esquiva) : base(chanceacerto, dano, pontosdevida, armadura, esquiva)
+        public Guerreiro() : base(4, 4, 20, 2, 0)
         {
 
         }
